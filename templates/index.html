@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirAware AI | Air Quality Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AirAware<span>AI</span></div>
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#about">About</a>
+        </div>
+        <div class="live-status">● Air Intelligence Platform</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-tag">AI POWERED AIR QUALITY INTELLIGENCE</div>
+        <h1>Understand the Air.<br><span>Predict the Future.</span></h1>
+        <p>Intelligent air quality forecasting and environmental insights for a healthier tomorrow.</p>
+        <a href="#dashboard" class="hero-btn">Explore Dashboard ↗</a>
+    </header>
+
+    <main id="dashboard" class="dashboard">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">CITY OVERVIEW</p>
+                <h2>Lucknow Air Intelligence</h2>
+            </div>
+            <span class="location">📍 Lucknow, Uttar Pradesh</span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <p>Current AQI</p>
+                <h3>--</h3>
+                <span>Awaiting data</span>
+            </div>
+            <div class="stat-card">
+                <p>PM2.5 Level</p>
+                <h3>--</h3>
+                <span>Awaiting data</span>
+            </div>
+            <div class="stat-card">
+                <p>PM10 Level</p>
+                <h3>--</h3>
+                <span>Awaiting data</span>
+            </div>
+            <div class="stat-card">
+    <p>AI Prediction</p>
+
+    {% if prediction is defined %}
+        <h3>{{ prediction }}</h3>
+        <span>Predicted PM2.5 (µg/m³)</span>
+    {% else %}
+        <h3>--</h3>
+        <span>Click Predict Now</span>
+    {% endif %}
+</div>
+        </div>
+
+        <div class="welcome-card">
+            <div>
+                <p class="eyebrow">PREDICTIVE ANALYTICS</p>
+                <h2>Your City's Air, One Step Ahead.</h2>
+                <p>Our machine learning system will analyse historical air quality and weather data to forecast pollution levels.</p>
+                <div class="prediction-action">
+    <a href="/predict#dashboard" class="hero-btn">Predict Now ↗</a>
+
+    {% if prediction is defined %}
+        <p>Next prediction: {{ prediction_time }}</p>
+    {% endif %}
+</div>
+            </div>
+            <div class="ai-icon">✦</div>
+        </div>
+    </main>
+
+    <footer id="about">
+        <p>© 2026 AirAware AI | AI-Powered Environmental Intelligence</p>
+    </footer>
+
+</body>
+</html>
